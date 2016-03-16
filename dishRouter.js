@@ -1,3 +1,6 @@
+// This helped clear up things
+// http://start.jcolemorrison.com/quick-tip-organizing-routes-in-large-express-4-x-apps/
+
 var express = require('express'),
     bodyParser = require('body-parser');
 var dishRouter = express.Router();
@@ -24,10 +27,27 @@ dishRouter.route('/').delete(function(req, res, next) {
 });
 
 // Routes for specific dish
+dishRouter.route('/:dishId').all(function(req, res, next) {
+  res.writeHead(200, { 'Content-Type': 'type/plain' });
+  next();
+});
+
+dishRouter.route('/:dishId').get(function(req, res, next) {
+  res.end('Will send details of the dish: ' + req.params.dishId + ' to you!Will send details of the dish: ' + req.params.dishId + ' to you!');
+});
+
+dishRouter.route('/:dishId').put(function(req, res, next) {
+  res.write('Updating the dish: '+ req.params.dishId + '.\n');
+  res.end('Will update the dish: ' + req.body.name + ' with details: ' + req.body.description);
+});
+
+dishRouter.route('/:dishId').delete(function(req, res, next) {
+    res.end('Deleting dish: ' + req.params.dishId);
+});
 
 module.exports = dishRouter;
 
-/* Note : I could also have written
+/* Note : I could also have chained the functions
 
 dishRouter.route('/').all(function(req, res, next) {
   res.writeHead(200, { 'Content-Type': 'type/plain' });

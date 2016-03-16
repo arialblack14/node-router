@@ -14,7 +14,7 @@ app.use(morgan('dev'));
 // Define our routers
 var dishRouter = require('./dishRouter');
 
-// module.exports = app;
+// Use our routes
 app.use('/dishes', dishRouter);
 
 // Serve static files
