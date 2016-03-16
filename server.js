@@ -13,11 +13,13 @@ app.use(morgan('dev'));
 
 // Require our routers
 var dishRouter = require('./dishRouter');
-var promotionsRouter = require('./promotionsRouter');
+var promoRouter = require('./promoRouter');
+var leaderRouter = require('./leaderRouter');
 
 // Use our routers
 app.use('/dishes', dishRouter);
-app.use('/promotions', promotionsRouter);
+app.use('/promotions', promoRouter);
+app.use('/leaderships', leaderRouter);
 
 // Serve static files
 app.use(express.static(__dirname + '/public'));

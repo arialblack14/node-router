@@ -33,7 +33,7 @@ dishRouter.route('/:dishId').all(function(req, res, next) {
 });
 
 dishRouter.route('/:dishId').get(function(req, res, next) {
-  res.end('Will send details of the dish: ' + req.params.dishId + ' to you!Will send details of the dish: ' + req.params.dishId + ' to you!');
+  res.end('Will send details of the dish: ' + req.params.dishId + ' to you!');
 });
 
 dishRouter.route('/:dishId').put(function(req, res, next) {
