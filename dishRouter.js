@@ -28,7 +28,7 @@ dishRouter.route('/:dishId').all(function(req, res, next) {
   res.writeHead(200, { 'Content-Type': 'type/plain' });
   next();
 })
-.route('/:dishId').get(function(req, res, next) {
+.get(function(req, res, next) {
   res.end('Will send details of the dish: ' + req.params.dishId + ' to you!');
 })
 .put(function(req, res, next) {
