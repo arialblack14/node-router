@@ -11,11 +11,13 @@ var app = express();
 // Use morgan for logging stuff in the console
 app.use(morgan('dev'));
 
-// Define our routers
+// Require our routers
 var dishRouter = require('./dishRouter');
+var promotionsRouter = require('./promotionsRouter');
 
-// Use our routes
+// Use our routers
 app.use('/dishes', dishRouter);
+app.use('/promotions', promotionsRouter);
 
 // Serve static files
 app.use(express.static(__dirname + '/public'));
